@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Code:400,700&display=swap");
+body {
+  font-family: "Fira Code", "Source Code Mono", monospace;
+  font-size: 18px;
+  line-height: 1.4em;
+  max-width: 700px;
+  margin: 8em auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1em;
+}
+
+#calculator {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+#calculator .set {
+  width: 100%;
+  display: block;
+  padding-bottom: 0.5em;
+}
+#calculator .set label {
+  width: calc(50% - 1em);
+  display: inline-block;
+  text-align: right;
+  padding-right: 1em;
+}
+#calculator .set input {
+  width: calc(50% - 1em);
+  font-size: 1em;
+  font-family: "Fira Code", "Source Code Mono", monospace;
+  border: 1px solid black;
+  border-bottom-width: 5px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+#calculator input[type=submit] {
+  font-size: 1em;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 3px solid black;
+  background: #ccc;
+  font-family: "Fira Code", "Source Code Mono", monospace;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style.css.map */

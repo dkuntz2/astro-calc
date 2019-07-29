@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Astro Photography Calculators</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Astro Photography Calculators</h1>
+
+    <p>
+      This calculator can help you determine a proper shutter speed for capturing photos of the night sky, provided an ISO speed and lens <em>f</em>-stop.
+    </p>
+
+    <form id="calculator">
+      <div class="set">
+        <label for="iso">ISO Speed</label>
+        <input type="number" id="iso" name="iso" min="1" value="800" />
+      </div>
+
+      <div class="set">
+        <label for="fstop"><em>f</em>-stop</label>
+        <input type="number" step="any", min="0.001" id="fstop" name="fstop" value="1.8" />
+      </div>
+
+      <div class="set">
+        <label for="relev">Adjust</label>
+        <input type="number" step="any" id="relev" name="relev", value="0" />
+      </div>
+
+      <input type="submit" value="Caclulate!" />
+    </form>
+
+    <h2>Raw Shutter Speed: <span id="shutter"></span></h2>
+
+    <h3>Dealing With Film</h3>
+    <p>
+      When shooting long exposures with film, you need to deal with reciprocity failure (the relationship between shutter speed and exposure breaking down).
+      Thankfully, Ilford publishes what those values are for their black and white films, which means we can calculate the correct shutter speed.
+    </p>
+
+    <h4>Shutter Speed for FP4: <span id="fp4shutter"></span></h4>
+    <h4>Shutter Speed for HP5: <span id="hp5shutter"></span></h4>
+
+    <p><small>
+      As a general note, film loves getting light, so overexposing is generally not an issue.
+      As such, you probably can't go wrong with just leaving the shutter open forever.
+      <small>(okay, forever is probably too long)</small>
+    </small></p>
+
+    <p><small>
+      <strong>This is <em>not</em> true for digital sensors.</strong>
+      If you overexpose by too much on a digital camera you will lose all detail in the affected areas.
+    </small></p>
+
+    <h3>Technical Notes</h3>
+
+    <p>
+      This calculator assumes you're working with an EV of -10.
+      -10 was selected because it's a good working value for capturing the galactic center.
+    </p>
+
+    <p>
+      The equations used for determine shutter speeds are based on those in the Wikipedia <a href="https://en.wikipedia.org/wiki/Exposure_value">Exposure Value</a> entry.
+    </p>
+
+    <h4>Determining the relative EV based on ISO speed:</h4>
+    <blockquote>
+      EV<sub>relative</sub> = EV<sub>base</sub> + log<sub>2</sub>(ISO/100)
+    </blockquote>
+    Which ultimately translates to
+    <blockquote>
+      EV = -10 + log<sub>2</sub>(ISO/100)
+    </blockquote>
+
+    <h4>Determining the shutter speed for a given EV and <em>f</em>-stop:</h4>
+      <blockquote>
+        EV = log<sub>2</sub>(<em>f</em><sup>2</sup> / S)
+      </blockquote>
+      Which is reduced to
+      <blockquote>
+        S = <em>f</em><sup>2</sup> / 2<sup>EV</sup>
+      </blockquote>
+    </p>
+
+  </body>
+</html>
